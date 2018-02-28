@@ -18,21 +18,24 @@ function calcula(){
 	var listacabo = document.getElementById("cabo");
 	var cabo = listacabo.options[listacabo.selectedIndex].value;
 	var fat, p, queda;
+
+	switch(ncond) {
+    		case 3:
+        		fat = sqrt(3);
+        		break;
+    		case 2:
+        		fat = 2;
+        		break;
+    		default:
+	}
+//	if(material=="Cobre"){
+//		p=0.0173;
+//	}
+//	else if(material=="Alumínio"){
+//		p=0.0278;
+//	}
 	
-	if(ncond == 3){
-		fat = sqrt(3);
-	}
-	elseif(ncond == 2){
-		fat=2;
-	}
-	if(material=="Cobre"){
-		p=0.0173;
-	}
-	elseif(material=="Alumínio"){
-		p=0.0278;
-	}
-	
-	document.getElementById("queda").innerHTML = p+" "+fat;
+	document.getElementById("queda").innerHTML = fat;
 	
 }
 
