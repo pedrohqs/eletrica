@@ -17,25 +17,44 @@ function calcula(){
 	var material = getRadioCheckedValue("material");
 	var listacabo = document.getElementById("cabo");
 	var cabo = listacabo.options[listacabo.selectedIndex].value;
-	var fat, p, queda;
+	var fat=0;
+	var p=0;
+	var queda=0;
 
-	switch(ncond) {
-    		case 3:
-        		fat = sqrt(3);
+	if(ncond>2){
+		fat=Math.sqrt(3);}
+	else{
+			fat = 2;
+	}
+//	switch(ncond) {
+//    		case 3:
+//        		//fat = math.sqrt(3);
+//        		break;
+//    		case 2:
+//        		fat = 2;
+//        		break;
+//    		default:
+//			fat=4;
+//			break;
+//	}
+	switch(material) {
+    		case "Cobre":
+        		p=0.0173;
         		break;
-    		case 2:
-        		fat = 2;
+    		case "Alumínio":
+        		p=0.0278;
         		break;
     		default:
+			p=99;
+			break;
 	}
-//	if(material=="Cobre"){
-//		p=0.0173;
-//	}
-//	else if(material=="Alumínio"){
-//		p=0.0278;
-//	}
+
+	document.getElementById("teste").innerHTML = ncond+" "+fat+" "+material+" "+p+" "+queda;
+	document.getElementById("teste2").innerHTML = I+" "+tensao+" "+ncond+" "+material+" "+L+" "+cabo;
 	
-	document.getElementById("queda").innerHTML = fat;
+	queda =100*p*(L/cabo)*fat*I/tensao,2;
+	document.getElementById("queda").innerHTML = "dV% = "+queda.toFixed(2)+" %";
+		
 	
 }
 
@@ -47,5 +66,3 @@ function getRadioCheckedValue(radio_name){
    }
   return '';
 }
-
-
