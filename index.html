@@ -1,8 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://pedrohqs.github.io/eletrica/ -->
 <html>
 <head>
-  <title>Minha primeira página CSS</title>
-  <link rel="stylesheet" type="text/css" href="estilo.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Queda de Tensão</title>
+  <link rel="stylesheet" type="text/css" href="./Minha primeira página CSS_files/estilo.css">
+  <script type="text/javascript" src="calculo.js"></script>
 </head>
 
 <body>
@@ -14,59 +17,53 @@
     <li><a href="links.html">Links</a>
   </ul> -->
   <!-- Conteudo -->
-  <h1>Queda de Tensão</h1>
-    <p>Corrente (A) <Br>
-    <input type="number" name="corrente" size="25" /> 
-    <p>Tensão (V) <Br>
-    <input type="radio" name="tensao" value=220 checked> 220      
-    <input type="radio" name="tensao" value=127> 127 
-    <input type="radio" name="tensao" value=380> 380
-    <p>N° de condutores <Br>
-    <input type="radio" name="ncond" value=3 checked> 3      
-    <input type="radio" name="ncond" value=2> 2 
-    <p>Material do cabo <Br> 
-    <input type="radio" name="material" value="Cobre" checked> Cobre     
-    <input type="radio" name="material" value="Alumínio"> Alumínio 
-    <p>Comprimento (m) <Br>
-    <input type="number" name="comprimento" size="25" /> 
-    <p>Cabo (mm2)
-    <!--surround the select box within a "custom-select" DIV element.
-    Remember to set the width:-->
-    <div class="custom-select" style="width:200px;">
-      <select>
-        <option value="0">Select car:</option>
-        <option value="1">Audi</option>
-        <option value="2">BMW</option>
-        <option value="3">Citroen</option>
-        <option value="4">Ford</option>
-        <option value="5">Honda</option>
-        <option value="6">Jaguar</option>
-        <option value="7">Land Rover</option>
-        <option value="8">Mercedes</option>
-        <option value="9">Mini</option>
-        <option value="10">Nissan</option>
-        <option value="11">Toyota</option>
-        <option value="12">Volvo</option>
-      </select>
-    </div>      
-      
-    <p>Corrente (A)   
-    <input type="number" name="corrente" size="30" /> 
-    <p>Corrente (A) 
-    <input type="text" name="corrente" size="30" /> 
-    <p>Corrente (A) 
-    <input type="text" name="corrente" size="30" /> 
-    <p>Corrente (A) 
-    <input type="text" name="corrente" size="30" /> 
+    <h1>Queda de Tensão	</h1>
+    
+<form Id="myform">
+	Corrente (A): <br>
+    <input type="number" Id="corrente" name="corrente" value=50 size="25"> </p>
+	Tensão (V): <br>
+    <input type="radio" name="tensao" value="220" checked=true> 220      
+    <input type="radio" name="tensao" value="127"> 127 
+    <input type="radio" name="tensao" value="380"> 380  </p>
+	N° de condutores:<br>
+    <input type="radio" name="ncond" value="3" checked=true> 3      
+    <input type="radio" name="ncond" value="2"> 2 </p>
+	Material do cabo: <br> 
+    <input type="radio" name="material" value="Cobre" checked=true> Cobre     
+    <input type="radio" name="material" value="Alumínio"> Alumínio </p>
+	Comprimento (m): <br>
+    <input type="number" Id="comprimento" name="comprimento" value=30 size="25"> </p>
+	<!--surround the select box within a "custom-select" DIV element.
+	Remember to set the width:-->
+	<div class="custom-select" style="width:100px;">
+	Cabo (mm2): <br>
+	  <select id="cabo">
+	    <option value="1.5">1,5</option>
+	    <option value="2.5" selected>2,5</option>
+	    <option value="4.0">4,0</option>
+	    <option value="6.0">6,0</option>
+	    <option value="10.0">10,0</option>
+	    <option value="16.0">16,0</option>
+	    <option value="25.0">25,0</option>
+	    <option value="35.0">35,0</option>
+	    <option value="50.0">50,0</option>
+	    <option value="70.0">70,0</option>
+	    <option value="90.0">90,0</option>
+	    <option value="120.0">120,0</option>
+	  </select>
+	</div><Br>
+    <input type="button" Name="Button" value="Calcula" onclick="calcula(this.form)">
+</form>	
   
-  <p>Bem vindos à minha página estilizada!
-
-  <p>Minha página não contém imagens, mas pelo menos está estilizada. Ela contém links, ainda que eles não levem a lugar algum…
-
-  <p>Deveria haver mais textos aqui porém eu ainda não decidi o que escrever.
-
+  <p id="queda"> ### queda calculada ###</p>
+  
+ <!-- <button onclick="calcula()">Calcula</button>
+ <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+-->
   <!-- Date e assine sua página, isto é educado! -->
-  <address>Construida em 27 de fevereiro de 2018 <Br> teste prompt 4 </address>
+    <address>Construida em 27 de fevereiro de 2018 </address>
  
-</body>
-</html>
+
+
+</body></html>
