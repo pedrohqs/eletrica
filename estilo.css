@@ -4,7 +4,7 @@
               Times, serif;
         color: darkblue;
         background-color: white ;
-        font-size: large;
+        font-size: 16px;
 }
   /*    ul.navbar {
         list-style-type: none;
@@ -17,7 +17,9 @@
 */
       h1 {
         font-family: Helvetica, Geneva, Arial,
-              SunSans-Regular, sans-serif}
+              SunSans-Regular, sans-serif;
+            
+}
  /*     ul.navbar li {
           background: white;
           margin: 0.5em 0;
