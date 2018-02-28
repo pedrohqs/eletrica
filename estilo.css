@@ -1,7 +1,6 @@
       body {
         padding-left: 1em;
-        font-family: Georgia, "Times New Roman",
-              Times, serif;
+        font-family: Georgia, "Times New Roman", Times, serif;
         color: darkblue;
         background-color: ivory ;
         font-size: 35px;
@@ -16,8 +15,7 @@
         width: 9em }
 */
       h1 {
-        font-family: Helvetica, Geneva, Arial,
-              SunSans-Regular, sans-serif;
+        font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
             font-size: 25px;
 }
  /*     ul.navbar li {
