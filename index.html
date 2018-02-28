@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)https://pedrohqs.github.io/eletrica/ -->
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
   <title>Queda de Tensão</title>
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <script type="text/javascript" src="calculo.js"></script>
@@ -19,28 +18,28 @@
   <!-- Conteudo -->
     <h1>Queda de Tensão	</h1>
     
-<form Id="myform">
+<form id="myform">
 	Corrente (A): <br>
-    <input type="number" Id="corrente" name="corrente" value=50 size="25"> </p>
+    <input type="number" id="corrente" name="corrente" value="100" size="25"> <p></p>
 	Tensão (V): <br>
-    <input type="radio" name="tensao" value="220" checked=true> 220      
-    <input type="radio" name="tensao" value="127"> 127 
-    <input type="radio" name="tensao" value="380"> 380  </p>
+    <input type="radio" name="tensao" value=220 checked="true"> 220      
+    <input type="radio" name="tensao" value=127> 127 
+    <input type="radio" name="tensao" value=380> 380  <p></p>
 	N° de condutores:<br>
-    <input type="radio" name="ncond" value="3" checked=true> 3      
-    <input type="radio" name="ncond" value="2"> 2 </p>
+    <input type="radio" name="ncond" value=3 checked="true"> 3      
+    <input type="radio" name="ncond" value=2> 2 <p></p>
 	Material do cabo: <br> 
-    <input type="radio" name="material" value="Cobre" checked=true> Cobre     
-    <input type="radio" name="material" value="Alumínio"> Alumínio </p>
+    <input type="radio" name="material" value="Cobre" checked="true"> Cobre     
+    <input type="radio" name="material" value="Alumínio"> Alumínio <p></p>
 	Comprimento (m): <br>
-    <input type="number" Id="comprimento" name="comprimento" value=30 size="25"> </p>
+    <input type="number" id="comprimento" name="comprimento" value="200" size="25"> <p></p>
 	<!--surround the select box within a "custom-select" DIV element.
 	Remember to set the width:-->
 	<div class="custom-select" style="width:100px;">
 	Cabo (mm2): <br>
 	  <select id="cabo">
 	    <option value="1.5">1,5</option>
-	    <option value="2.5" selected>2,5</option>
+	    <option value="2.5" >2,5</option>
 	    <option value="4.0">4,0</option>
 	    <option value="6.0">6,0</option>
 	    <option value="10.0">10,0</option>
@@ -48,14 +47,16 @@
 	    <option value="25.0">25,0</option>
 	    <option value="35.0">35,0</option>
 	    <option value="50.0">50,0</option>
-	    <option value="70.0">70,0</option>
+	    <option value="70.0" selected="selected">70,0</option>
 	    <option value="90.0">90,0</option>
 	    <option value="120.0">120,0</option>
 	  </select>
-	</div><Br>
-    <input type="button" Name="Button" value="Calcula" onclick="calcula(this.form)">
+	</div><br>
+    <input type="button" name="Button" value="Calcula" onclick="calcula(this.form)">
 </form>	
   
+  <p id="teste"> ### queda calculada ###</p>
+   <p id="teste2"> ### queda calculada ###</p>
   <p id="queda"> ### queda calculada ###</p>
   
  <!-- <button onclick="calcula()">Calcula</button>
@@ -64,6 +65,7 @@
   <!-- Date e assine sua página, isto é educado! -->
     <address>Construida em 27 de fevereiro de 2018 </address>
  
+
 
 
 </body></html>
