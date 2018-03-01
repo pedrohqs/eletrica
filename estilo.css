@@ -1,18 +1,21 @@
-      body {
+       body {
         padding-left: 1em;
-        font-family: Georgia, "Times New Roman", Times, serif;        color: darkblue;
+        font-family: Arial,  Georgia, Times, serif;
+		 color: black;
         background-color: white;
+ }
+h1 {
+		padding-left: 1em;
+        font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+		 color: white;
+        background-color: green;
 }
-      h1 {
-            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
-}
-       address {
+address {
           margin-top: 1em;
           padding-top: 1em;
           border-top: thin dotted }
 
-
-            /*    ul.navbar {
+  /*    ul.navbar {
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -21,6 +24,7 @@
         left: 1em;
         width: 9em }
 */
+ 
  /*     ul.navbar li {
           background: white;
           margin: 0.5em 0;
