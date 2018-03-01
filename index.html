@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Queda de Tensão	</h1>
+    <h1>  Queda de Tensão	</h1>
     
 <form id="myform">
 	Corrente (A):    
@@ -16,7 +16,8 @@
 	Tensão (V):
     <input type="radio" name="tensao" value=220 checked="true"> 220      
     <input type="radio" name="tensao" value=127> 127 
-    <input type="radio" name="tensao" value=380> 380  <p></p>
+    <input type="radio" name="tensao" value=380> 380  
+	<input type="radio" name="tensao" value=440> 440  <p></p>
 	N° de condutores:
     <input type="radio" name="ncond" value=3 checked="true"> 3      
     <input type="radio" name="ncond" value=2> 2 <p></p>
@@ -47,9 +48,9 @@
     <input type="button" name="Button" value="Calcula" onclick="calcula(this.form)">
 </form>	
   
-  <p id="teste"> ### queda calculada ###</p>
-   <p id="teste2"> ### queda calculada ###</p>
-  <p id="queda"> ### queda calculada ###</p>
+  <!--<p id="teste"> ### queda calculada ###</p>
+  <p id="teste2"> ### queda calculada ###</p>-->
+  <p id="queda">dV%</p>
   
  <!-- <button onclick="calcula()">Calcula</button>
  <button type="button" onclick="alert('Hello World!')">Click Me!</button>
