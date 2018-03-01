@@ -1,15 +1,5 @@
 function calcula(){
-	//var I;
-	//I = document.getElementById("corrente").value;
-	//L= document.getElementById("comprimento").value;
-	//ncond= document.getElementById("ncond").value;
-	//var frm = document.getElementById("myform");
-	//var tensao = frm.elements[tensao];
-    	//var text = "";
-    //var i;
-    //for (i = 0; i < frm.length ;i++) {
-    //   text += frm.elements[i].name + "<br>";
-   //}
+
 	var I = document.getElementById("corrente").value;
 	var L = document.getElementById("comprimento").value;
  	var tensao = getRadioCheckedValue("tensao");
@@ -49,8 +39,8 @@ function calcula(){
 			break;
 	}
 
-	document.getElementById("teste").innerHTML = ncond+" "+fat+" "+material+" "+p+" "+queda;
-	document.getElementById("teste2").innerHTML = I+" "+tensao+" "+ncond+" "+material+" "+L+" "+cabo;
+	//document.getElementById("teste").innerHTML = ncond+" "+fat+" "+material+" "+p+" "+queda;
+	//document.getElementById("teste2").innerHTML = I+" "+tensao+" "+ncond+" "+material+" "+L+" "+cabo;
 	
 	queda =100*p*(L/cabo)*fat*I/tensao,2;
 	document.getElementById("queda").innerHTML = "dV% = "+queda.toFixed(2)+" %";
@@ -66,3 +56,4 @@ function getRadioCheckedValue(radio_name){
    }
   return '';
 }
+
