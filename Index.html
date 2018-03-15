@@ -15,22 +15,22 @@
 		<!-- <p id="teste">teste</p>  -->
 			<section class="corrente cf">
 				<h2>Corrente (A)</h2>
-				<input type="number" id="saidacorrente" name="corrente" value="100" size="15">
+				<input type="number" id="saidacorrente" name="corrente" value="100" size="15" class="caixa">
 				<input type="range" min="1" max="400" value="100" step="0.1" class="slider" id="rangecorrente">
 			</section>
 			<section class="potw cf">
 				<h2>Potência (kW)</h2>	
-				<input type="number" id="saidapotw" name="potw" value="38.1" size="15" >
+				<input type="number" id="saidapotw" name="potw" value="38.1" size="15" class="caixa">
 				<input type="range" min="1" max="150" value="38.1" step="0.1" class="slider" id="rangepotw">
 			</section>
 			<section class="kva cf">
 				<h2>Potência (kVA)</h2>
-				<input type="number" id="saidakva" name="kva" value="38.1" size="15">
+				<input type="number" id="saidakva" name="kva" value="38.1" size="15" class="caixa">
 				<input type="range" min="1" max="150" value="38.1" step="0.1" class="slider" id="rangekva">
 			</section>			
 			<section class="fpot cf">
 				<h2>Fator de Potência</h2>
-				<input type="number" id="saidafpot" name="fpot" value="1" size="15">
+				<input type="number" id="saidafpot" name="fpot" value="1" size="15" class="caixa">
 				<input type="range" min="0" max="1" value="1" step="0.01" class="slider" id="rangefpot" >
 			</section>
 			<section class="tensao cf">
@@ -83,6 +83,7 @@
     <script>
     	getSliderValue_corrente("rangecorrente", "saidacorrente");
     	getSliderValue_kva("rangekva", "saidakva");
+    	getSliderValue_potw("rangepotw", "saidapotw");
     	getSliderValue_fpot("rangefpot", "saidafpot");
     	getSliderValue("rangecomprimento", "saidacomprimento");
     </script>
