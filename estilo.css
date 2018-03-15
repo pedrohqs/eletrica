@@ -81,6 +81,9 @@ h1{
 	max-width: 350px;
 }
 
+.caixa{
+	width: 50px;
+}
 
 /*
 .form .tensao input:checked + label:after, form .ncond input:checked + label:after, .form .material input:checked + label:after{
@@ -116,5 +119,6 @@ h1{
 	cursor: pointer;
 	transform: rotateX(360deg);
 }
+
 
 */
