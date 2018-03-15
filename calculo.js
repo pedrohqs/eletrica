@@ -69,6 +69,33 @@ function getSliderValue_kva(id, saida){
 	    document.getElementById("saidapotw").value = kw.toFixed(1);
 	}
 }
+//slider value para kva 
+function getSliderValue_potw(id, saida){
+	var slider = document.getElementById(id);
+	var output = document.getElementById(saida);
+ 	var tensao = 0;
+ 	var fpot = 0;
+	var ncond = 0;
+	var fat = 0;
+	var kva = 0;
+	var corrente = 0;
+	//output.value = slider.value; // Display the default slider value
+	// Update the current slider value (each time you drag the slider handle)
+	slider.oninput = function() {
+		ncond = getRadioCheckedValue("radioncond");
+		if(ncond>2){ fat=Math.sqrt(3);}
+		else{ fat = 1;}
+		tensao = getRadioCheckedValue("radiotensao");
+		fpot = document.getElementById("saidafpot").value;
+		kva = this.value / fpot;
+		corrente = 1000 * kva/(fat * tensao); 
+		output.value = this.value;
+	    document.getElementById("rangecorrente").value = corrente;	
+	    document.getElementById("saidacorrente").value = corrente.toFixed(1);
+	    document.getElementById("rangekva").value = kva.toFixed(1);
+	    document.getElementById("saidakva").value = kva.toFixed(1);
+	}
+}
 //slider value generico
 function getSliderValue(id, saida){
 	var slider = document.getElementById(id);
@@ -142,6 +169,9 @@ function calcula(){
 		
 	
 }
+
+
+
 
 
 
