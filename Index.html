@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://pedrohqs.github.io/eletrica/ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Elétrica Pedro</title>
+  	<link rel="stylesheet" type="text/css" href="estilo.css">
+  	<script type="text/javascript" src="calculo.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Elétrica</h1>
+		<form class="form cf">
+		<!-- <p id="teste">teste</p>  -->
+			<section class="corrente cf">
+				<h2>Corrente (A)</h2>
+				<input type="number" id="saidacorrente" name="corrente" value="100" size="15">
+				<input type="range" min="1" max="400" value="100" step="0.1" class="slider" id="rangecorrente">
+			</section>
+			<section class="potw cf">
+				<h2>Potência (kW)</h2>	
+				<input type="number" id="saidapotw" name="potw" value="38.1" size="15" >
+				<input type="range" min="1" max="150" value="38.1" step="0.1" class="slider" id="rangepotw">
+			</section>
+			<section class="kva cf">
+				<h2>Potência (kVA)</h2>
+				<input type="number" id="saidakva" name="kva" value="38.1" size="15">
+				<input type="range" min="1" max="150" value="38.1" step="0.1" class="slider" id="rangekva">
+			</section>			
+			<section class="fpot cf">
+				<h2>Fator de Potência</h2>
+				<input type="number" id="saidafpot" name="fpot" value="1" size="15">
+				<input type="range" min="0" max="1" value="1" step="0.01" class="slider" id="rangefpot" >
+			</section>
+			<section class="tensao cf">
+				<h2>Tensão (V)</h2>
+			    <input type="radio" name="radiotensao" id="220" value=220 checked><label class="220-label four col" for="220">220</label>      
+			    <input type="radio" name="radiotensao" id="127" value=127><label class="127-label four col" for="127">127</label>
+			    <input type="radio" name="radiotensao" id="380" value=380><label class="380-label four col" for="380">380</label>
+				<input type="radio" name="radiotensao" id="440" value=440><label class="440-label four col" for="440">440</label>				
+			</section>
+			<section class="ncond cf">
+				<h2>N° de Condutores</h2>
+			    <input type="radio" name="radioncond" id="3" value=3 checked><label class="3cond-label four col" for="3">3</label>      
+			    <input type="radio" name="radioncond" id="2" value=2><label class="2cond-label four col" for="2">2</label>
+			</section>
+			<section class="cabo cf">
+				<h2>Cabo (mm²)</h2>
+				<select id="selectcabo">
+					<option value="1.5">1,5</option>
+					<option value="2.5" >2,5</option>
+					<option value="4.0">4,0</option>
+					<option value="6.0">6,0</option>
+					<option value="10.0">10,0</option>
+					<option value="16.0">16,0</option>
+					<option value="25.0">25,0</option>
+					<option value="35.0">35,0</option>
+					<option value="50.0">50,0</option>
+					<option value="70.0" selected>70,0</option>
+					<option value="90.0">90,0</option>
+					<option value="120.0">120,0</option>
+				</select>				
+			</section>
+			<section class="material cf">
+				<h2>Material do Cabo</h2>
+			    <input type="radio" name="radiomaterial" id="cobre" value="Cobre" checked><label class="cobre-label four col" for="cobre">Cobre</label>      
+			    <input type="radio" name="radiomaterial" id="aluminio" value="Alumínio"><label class="aluminio-label four col" for="aluminio">Alumínio</label>
+			</section>
+			<section class="comprimento cf">
+				<h2>Comprimento (m)</h2>
+				<input type="number" id="saidacomprimento" name="comprimento" value="100" size="15">
+				<input type="range" min="1" max="200" value="50" class="slider" id="rangecomprimento">				
+			</section>
+						
+		</form>
+		
+		<input type="button" name="Button" value="Calcula" onclick="calcula()">
+		<p id="queda">dV%</p>
+	
+	</div>
+    
+    <script>
+    	getSliderValue_corrente("rangecorrente", "saidacorrente");
+    	getSliderValue_kva("rangekva", "saidakva");
+    	getSliderValue_fpot("rangefpot", "saidafpot");
+    	getSliderValue("rangecomprimento", "saidacomprimento");
+    </script>
+
+<!-- 
+<form id="myform">
+	Corrente (A):
+	    
+    <input type="number" id="corrente" name="corrente" value="100" size="25">
+	Tensão (V):
+    <input type="radio" name="tensao" value=220 checked="true"> 220      
+    <input type="radio" name="tensao" value=127> 127 
+    <input type="radio" name="tensao" value=380> 380  
+	<input type="radio" name="tensao" value=440> 440  
+	N° de condutores:
+    <input type="radio" name="ncond" value=3 checked="true"> 3      
+    <input type="radio" name="ncond" value=2> 2 <p></p>
+	Material do cabo: 
+    <input type="radio" name="material" value="Cobre" checked="true"> Cobre     
+    <input type="radio" name="material" value="Alumínio"> Alumínio <p></p>
+	Comprimento (m): 
+    <input type="number" id="comprimento" name="comprimento" value="200" size="25"> <p></p>
+
+	<div class="custom-select" style="width:100px;">
+	Cabo (mm2):
+	  <select id="cabo">
+	    <option value="1.5">1,5</option>
+	    <option value="2.5" >2,5</option>
+	    <option value="4.0">4,0</option>
+	    <option value="6.0">6,0</option>
+	    <option value="10.0">10,0</option>
+	    <option value="16.0">16,0</option>
+	    <option value="25.0">25,0</option>
+	    <option value="35.0">35,0</option>
+	    <option value="50.0">50,0</option>
+	    <option value="70.0" selected="selected">70,0</option>
+	    <option value="90.0">90,0</option>
+	    <option value="120.0">120,0</option>
+	  </select>
+	</div><br>
+    <input type="button" name="Button" value="Calcula" onclick="calcula(this.form)">
+</form>	
+ -->    
+   
+  <!--<p id="teste"> ### queda calculada ###</p>
+  <p id="teste2"> ### queda calculada ###</p>-->
+ <!--  <p id="queda">dV%</p> -->
+  
+ <!-- <button onclick="calcula()">Calcula</button>
+ <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+-->
+  <!-- Date e assine sua página, isto é educado! -->
+    <address>Construida em 27 de fevereiro de 2018 </address>
+ 
+
+
+
+</body></html>
