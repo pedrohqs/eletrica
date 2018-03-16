@@ -34,9 +34,9 @@
 				<input type="radio" name="radiotensao" id="440" value=440 onclick="getSliderValue_corrente()"><label class="440-label four col" for="440">440 V</label>				
 			</section>
 			<section class="ncond cf">
-			    <input type="radio" name="radioncond" id="3cond" value=3 checked onclick="getSliderValue_corrente()"><label class="3cond-label four col" for="3cond">Trifásico</label>      
-			    <input type="radio" name="radioncond" id="2cond" value=2 onclick="getSliderValue_corrente()"><label class="2cond-label four col" for="2cond">bifásico</label>
-			    <input type="radio" name="radioncond" id="1cond" value=1 onclick="getSliderValue_corrente()"><label class="1cond-label four col" for="1cond">monofásico</label>
+			    <input type="radio" name="radioncond" id="3cond" value=3 checked onclick="getSliderValue_corrente()"><label class="3cond-label four col" for="3cond">3F</label>      
+			    <input type="radio" name="radioncond" id="2cond" value=2 onclick="getSliderValue_corrente()"><label class="2cond-label four col" for="2cond">F+F</label>
+			    <input type="radio" name="radioncond" id="1cond" value=1 onclick="getSliderValue_corrente()"><label class="1cond-label four col" for="1cond">F+N</label>
 			</section>
 			<section class="cabo cf">
 				<select id="selectcabo">
@@ -63,14 +63,12 @@
 				<input type="number" id="saidacomprimento" name="comprimento" value="100" size="15">
 				<input type="range" min="1" max="200" value="50" class="slider" id="rangecomprimento">				
 			</section>
-			<section class="tensao cf">
-			    <input type="radio" name="correntemax" id="50" value=50 onclick="correnteMax(this.value)"><label class="50-label four col" for="50">50 A</label>      
-			    <input type="radio" name="correntemax" id="100" value=100 checked onclick="correnteMax(this.value)"><label class="100-label four col" for="100">100 A</label>
-			    <input type="radio" name="correntemax" id="200" value=200 onclick="correnteMax(this.value)"><label class="200-label four col" for="200">200 A</label>
-				<input type="radio" name="correntemax" id="400" value=400 onclick="correnteMax(this.value)"><label class="400-label four col" for="400">400 A</label>				
-			</section>					
-					
-						
+			<section class="cmax cf">
+				<span>Imax = </span><span id="saidacmax" class="saida">100.0</span><Br> 
+			</section>
+			<section>
+				<input type="range" min="0" max="800" value="1" step="0.01" class="slider" id="rangefpot" oninput="correnteMax(this.value)">
+			</section>			
 		</form>
 		
 		<input type="button" name="Button" value="Calcula" onclick="calcula()">
