@@ -27,6 +27,7 @@ function getFat(ncond){
 function correnteMax(correntemax){
 	document.getElementById("rangecorrente").max = correntemax;
 	document.getElementById("rangecorrente").value = correntemax; 
+	document.getElementById("saidacmax").innerHTML = correntemax;
 	getSliderValue_corrente();
 }
 function getRadioCheckedValue(radio_name){
