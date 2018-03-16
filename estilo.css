@@ -62,11 +62,11 @@ h1{
 	position: relative;
 	color: #fff;
 	background-color: #aaa;
-	font-size: 46px;
+	font-size: 53px;
 	text-align: center;
-	height: 100px;
-	width: 205px;
-	line-height: 70px;
+	height: 110px;
+	width: 210px;
+	line-height: 100px;
 	display: block;
 	cursor: pointer;
 	border: 3px solid transparent;
