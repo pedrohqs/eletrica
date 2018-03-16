@@ -1,115 +1,34 @@
 //slider value para corrente 
-function getSliderValue_corrente(id, saida){
-	var slider = document.getElementById(id);
-	var output = document.getElementById(saida);
- 	var tensao = 0;
- 	var fpot = 0;
+function getSliderValue_corrente(){
+	var corrente = document.getElementById("rangecorrente").value;
+	var tensao = getRadioCheckedValue("radiotensao");
+ 	var fpot = document.getElementById("saidafpot").innerHTML;
 	var ncond = 0;
-	var fat = 0;
-	var kva = 0;
-	var kw = 0;
-	//output.value = slider.value; // Display the default slider value
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = function() {
-		ncond = getRadioCheckedValue("radioncond");
-		if(ncond>2){ fat=Math.sqrt(3);}
-		else{ fat = 1;}
-		tensao = getRadioCheckedValue("radiotensao");
-		fpot = document.getElementById("saidafpot").value;
-		kva = fat*tensao*this.value/1000;
-		kw = fat*tensao*this.value*fpot/1000;
-		output.value = this.value;
-	    document.getElementById("rangekva").value = kva.toFixed(1);	
-	    document.getElementById("saidakva").value = kva.toFixed(1);
-	    document.getElementById("rangepotw").value = kw.toFixed(1);
-	    document.getElementById("saidapotw").value = kw.toFixed(1);
-	}
+	var fat = getFat(getRadioCheckedValue("radioncond"));
+	var kva = fat*tensao*corrente/1000;
+	var kw = fat*tensao*corrente*fpot/1000;
+	document.getElementById("saidacorrente").innerHTML = corrente;
+	document.getElementById("saidakva").innerHTML = kva.toFixed(1);
+    document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
 }
 //slider value para fp
-function getSliderValue_fpot(id, saida){
-	var slider = document.getElementById(id);
-	var output = document.getElementById(saida);
-	var kva = 0;
-	var kw = 0;
-
-	//output.value = slider.value; // Display the default slider value
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = function() {
-		kva = document.getElementById("saidakva").value;
-		kw = this.value*kva;
-		output.value = this.value;
-	    document.getElementById("rangepotw").value = kw.toFixed(1);
-	    document.getElementById("saidapotw").value = kw.toFixed(1);
-	}
+function getSliderValue_fpot(){
+	var fpot = document.getElementById("rangefpot").value;
+	var kva = document.getElementById("saidakva").innerHTML;
+	var kw = fpot*kva;
+	document.getElementById("saidafpot").innerHTML = fpot;
+    document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
 }
-//slider value para kva 
-function getSliderValue_kva(id, saida){
-	var slider = document.getElementById(id);
-	var output = document.getElementById(saida);
- 	var tensao = 0;
- 	var fpot = 0;
-	var ncond = 0;
-	var fat = 0;
-	var kw = 0;
-	var corrente = 0;
-	//output.value = slider.value; // Display the default slider value
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = function() {
-		ncond = getRadioCheckedValue("radioncond");
-		if(ncond>2){ fat=Math.sqrt(3);}
-		else{ fat = 1;}
-		tensao = getRadioCheckedValue("radiotensao");
-		fpot = document.getElementById("saidafpot").value;
-		kw = this.value * fpot;
-		corrente = 1000 * this.value/(fat * tensao); 
-		output.value = this.value;
-	    document.getElementById("rangecorrente").value = corrente;	
-	    document.getElementById("saidacorrente").value = corrente.toFixed(1);
-	    document.getElementById("rangepotw").value = kw.toFixed(1);
-	    document.getElementById("saidapotw").value = kw.toFixed(1);
-	}
+function getFat(ncond){
+	if(ncond>2){ fat=Math.sqrt(3);}
+	else{ fat = 1;}
+	return fat;
 }
-//slider value para kva 
-function getSliderValue_potw(id, saida){
-	var slider = document.getElementById(id);
-	var output = document.getElementById(saida);
- 	var tensao = 0;
- 	var fpot = 0;
-	var ncond = 0;
-	var fat = 0;
-	var kva = 0;
-	var corrente = 0;
-	//output.value = slider.value; // Display the default slider value
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = function() {
-		ncond = getRadioCheckedValue("radioncond");
-		if(ncond>2){ fat=Math.sqrt(3);}
-		else{ fat = 1;}
-		tensao = getRadioCheckedValue("radiotensao");
-		fpot = document.getElementById("saidafpot").value;
-		kva = this.value / fpot;
-		corrente = 1000 * kva/(fat * tensao); 
-		output.value = this.value;
-	    document.getElementById("rangecorrente").value = corrente;	
-	    document.getElementById("saidacorrente").value = corrente.toFixed(1);
-	    document.getElementById("rangekva").value = kva.toFixed(1);
-	    document.getElementById("saidakva").value = kva.toFixed(1);
-	}
+function correnteMax(correntemax){
+	document.getElementById("rangecorrente").max = correntemax;
+	document.getElementById("rangecorrente").value = correntemax; 
+	getSliderValue_corrente();
 }
-//slider value generico
-function getSliderValue(id, saida){
-	var slider = document.getElementById(id);
-	var output = document.getElementById(saida);
-	var a;
-	output.value = slider.value; // Display the default slider value
-
-	// Update the current slider value (each time you drag the slider handle)
-	slider.oninput = function() {
-	    output.value = this.value;
-	    
-	}
-}
-
 function getRadioCheckedValue(radio_name){
    var oRadio = document.forms[0].elements[radio_name];
     for(var i = 0; i < oRadio.length; i++){
@@ -169,9 +88,6 @@ function calcula(){
 		
 	
 }
-
-
-
 
 
 
