@@ -20,7 +20,7 @@ h1{
 
 /* CONTAINERS */
 
-.container {max-width: 550px; width: 100%; margin: 0 auto;}
+.container {max-width: 600px; width: 100%; margin: 0 auto;}
 .four { width: 32.26%; max-width: 32.26%;}
 
 
@@ -63,7 +63,7 @@ h1{
 	font-size: 26px;
 	text-align: center;
 	height: 70px;
-	width: 120px;
+	width: 140px;
 	line-height: 70px;
 	display: block;
 	cursor: pointer;
@@ -78,7 +78,7 @@ h1{
 }
 .slider{
 	width: 100%;
-	max-width: 350px;
+	/*max-width: 450px;*/
 }
 
 .caixa{
@@ -119,6 +119,5 @@ h1{
 	cursor: pointer;
 	transform: rotateX(360deg);
 }
-
 
 */
