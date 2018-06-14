@@ -3,13 +3,14 @@ function getSliderValue_corrente(){
 	var corrente = document.getElementById("rangecorrente").value;
 	var tensao = getRadioCheckedValue("radiotensao");
  	var fpot = document.getElementById("saidafpot").innerHTML;
-	var ncond = 0;
 	var fat = getFat(getRadioCheckedValue("radioncond"));
+	var queda = getQueda();
 	var kva = fat*tensao*corrente/1000;
 	var kw = fat*tensao*corrente*fpot/1000;
 	document.getElementById("saidacorrente").innerHTML = corrente;
 	document.getElementById("saidakva").innerHTML = kva.toFixed(1);
     document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
+    document.getElementById("saidaqueda").innerHTML = queda.toFixed(2);
 }
 //slider value para fp
 function getSliderValue_fpot(){
@@ -18,6 +19,38 @@ function getSliderValue_fpot(){
 	var kw = fpot*kva;
 	document.getElementById("saidafpot").innerHTML = fpot;
     document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
+}
+//slider value para comprimento
+function getSliderValue_comprimento(){
+	var comprimento = document.getElementById("rangecomprimento").value;
+	document.getElementById("saidacomprimento").innerHTML = comprimento;
+	var queda = getQueda();
+	document.getElementById("saidaqueda").innerHTML = queda.toFixed(2);
+}
+function getQueda(){
+	var comprimento = document.getElementById("rangecomprimento").value;
+	var tensao = getRadioCheckedValue("radiotensao");
+	var corrente = document.getElementById("rangecorrente").value;
+	var material = getRadioCheckedValue("radiomaterial");
+	var cabo = document.getElementById("selectcabo").value;
+	var fat = getFat(getRadioCheckedValue("radioncond"));
+	var fat2 = 2;
+	if (fat != 1){ fat2 = fat; }
+	var resistividade = getResistividade(material);
+	var queda = resistividade*(comprimento/cabo)*(corrente/tensao)*fat2*100;
+	
+	document.getElementById("queda").innerHTML = resistividade + " " + material; 
+	
+	return queda;
+}
+function getResistividade(materialcabo){
+	var resist = 0;
+	if (materialcabo == "Cobre"){resist = 0.0173;}
+	else{resist = 0.0278;}
+	
+	document.getElementById("quedain").innerHTML = resist + " " + materialcabo; 
+	
+	return resist; 	
 }
 function getFat(ncond){
 	if(ncond>2){ fat=Math.sqrt(3);}
