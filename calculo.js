@@ -1,3 +1,8 @@
+function refreshCorrenteComprimento(){
+	getSliderValue_corrente();
+	getSliderValue_comprimento();
+}
+
 //slider value para corrente 
 function getSliderValue_corrente(){
 	var corrente = document.getElementById("rangecorrente").value;
@@ -10,7 +15,9 @@ function getSliderValue_corrente(){
 	document.getElementById("saidacorrente").innerHTML = corrente;
 	document.getElementById("saidakva").innerHTML = kva.toFixed(1);
     document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
-    document.getElementById("saidaqueda").innerHTML = queda.toFixed(2);
+    document.getElementById("saidaqueda").innerHTML = queda.toFixed(1);
+    document.getElementById("saidacomprimento5").innerHTML = getCompPcent(0.05).toFixed(1); 
+    document.getElementById("saidacomprimento7").innerHTML = getCompPcent(0.07).toFixed(1);
 }
 //slider value para fp
 function getSliderValue_fpot(){
@@ -25,7 +32,7 @@ function getSliderValue_comprimento(){
 	var comprimento = document.getElementById("rangecomprimento").value;
 	document.getElementById("saidacomprimento").innerHTML = comprimento;
 	var queda = getQueda();
-	document.getElementById("saidaqueda").innerHTML = queda.toFixed(2);
+	document.getElementById("saidaqueda").innerHTML = queda.toFixed(1);
 }
 function getQueda(){
 	var comprimento = document.getElementById("rangecomprimento").value;
@@ -40,6 +47,19 @@ function getQueda(){
 	var queda = resistividade*(comprimento/cabo)*(corrente/tensao)*fat2*100;
 	return queda;
 }
+function getCompPcent(pcent){
+	var tensao = getRadioCheckedValue("radiotensao");
+	var corrente = document.getElementById("rangecorrente").value;
+	var material = getRadioCheckedValue("radiomaterial");
+	var cabo = document.getElementById("selectcabo").value;
+	var fat = getFat(getRadioCheckedValue("radioncond"));
+	var fat2 = 2;
+	if (fat != 1){ fat2 = fat; }
+	var resistividade = getResistividade(material);
+	var comppcent = (pcent*cabo*tensao)/(resistividade*corrente*fat2);
+	return comppcent;
+}
+
 function getResistividade(materialcabo){
 	var resist = 0;
 	switch(materialcabo) {
