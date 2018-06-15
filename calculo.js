@@ -18,7 +18,7 @@ function getSliderValue_fpot(){
 	var kva = document.getElementById("saidakva").innerHTML;
 	var kw = fpot*kva;
 	document.getElementById("saidafpot").innerHTML = fpot;
-    document.getElementById("saidapotw").innerHTML = kw.toFixed(1);
+    document.getElementById("saidapotw").innerHTML = kw.toFixed(2);
 }
 //slider value para comprimento
 function getSliderValue_comprimento(){
@@ -38,18 +38,22 @@ function getQueda(){
 	if (fat != 1){ fat2 = fat; }
 	var resistividade = getResistividade(material);
 	var queda = resistividade*(comprimento/cabo)*(corrente/tensao)*fat2*100;
-	
-	document.getElementById("queda").innerHTML = resistividade + " " + material; 
-	
 	return queda;
 }
 function getResistividade(materialcabo){
 	var resist = 0;
-	if (materialcabo == "Cobre"){resist = 0.0173;}
-	else{resist = 0.0278;}
-	
-	document.getElementById("quedain").innerHTML = resist + " " + materialcabo; 
-	
+	switch(materialcabo) {
+	case "Cobre":
+		resist=0.0173;
+		break;
+	case "Alumínio":
+		resist=0.0278;
+		break;
+	default:
+	resist=99;
+	break;
+}	
+
 	return resist; 	
 }
 function getFat(ncond){
@@ -57,11 +61,15 @@ function getFat(ncond){
 	else{ fat = 1;}
 	return fat;
 }
-function correnteMax(correntemax){
+function setCorrenteMax(correntemax){
 	document.getElementById("rangecorrente").max = correntemax;
 	document.getElementById("rangecorrente").value = correntemax; 
-	document.getElementById("saidacmax").innerHTML = correntemax;
 	getSliderValue_corrente();
+}
+function setCompMax(compmax){
+	document.getElementById("rangecomprimento").max = compmax;
+	document.getElementById("rangecomprimento").value = compmax; 
+	getSliderValue_comprimento();
 }
 function getRadioCheckedValue(radio_name){
    var oRadio = document.forms[0].elements[radio_name];

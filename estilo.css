@@ -54,7 +54,7 @@ h1{
 
 /* FORM */
 
-.form .tensao input, .form .ncond input, .form .material input{
+.form .tensao input, .form .ncond input, .form .material input, .form .cmax input, .form .compmax input{
 	display: none;
 }
 
@@ -74,7 +74,7 @@ h1{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.form .tensao input:checked + label, .form .ncond input:checked + label, .form .material input:checked + label{
+.form .tensao input:checked + label, .form .ncond input:checked + label, .form .material input:checked + label, .form .cmax input:checked + label, .form .compmax input:checked + label{
 	border: 3px solid #333;
 	background-color: #2fcc71;
 }
@@ -111,6 +111,45 @@ h1{
 .caixa{
 	width: 50px;
 }
+
+.custom-select {
+  position: relative;
+  display: block;
+  max-width: 400px;
+  min-width: 180px;
+  
+  margin: 1% 0 1% 1.6%;  
+  border: 3px solid #333;
+  background-color: #2fcc71;
+  z-index: 10;
+  }
+  .custom-select select{
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 12px 55px 15px 15px;
+    font-size: 53px;
+  }
+  
+  .custom-select &:after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 38px;
+    content: '\2228';
+    text-align: center;
+    font-size: 24px;
+    border-left: 1px solid #3C1C78;
+    z-index: -1;
 
 /*
 .form .tensao input:checked + label:after, form .ncond input:checked + label:after, .form .material input:checked + label:after{
